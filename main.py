@@ -6,22 +6,46 @@ text = input("Type your message:\n").lower()
 shift = int(input("Type the shift number:\n"))
 
 
-def encrypt(plain_text, shift_amount):
+# def encrypt(plain_text, shift_amount):
+#     encrypted_text = ""
+#     for letter in plain_text:
+#         new_index = alphabet.index(letter) + shift_amount
+#         if new_index > len(alphabet) - 1:
+#             new_index = new_index - len(alphabet)
+#         encrypted_text += alphabet[new_index]
+#     print(f"The encoded text is {encrypted_text}")
+#
+# def decrypt(cypher_text, shift_amount):
+#     decrypted_text = ""
+#     for letter in cypher_text:
+#         new_index = alphabet.index(letter) - shift_amount
+#         if new_index < 0:
+#             new_index = new_index + len(alphabet)
+#         decrypted_text += alphabet[new_index]
+#     print(f"The decrypted text is {decrypted_text}")
+#
+# if direction == "encode":
+#     encrypt(plain_text=text, shift_amount=shift)
+# elif direction == "decode":
+#     decrypt(cypher_text=text, shift_amount=shift)
+
+
+def caesar(text_entered, text_movement, decrypt_method):
     encrypted_text = ""
-    for letter in plain_text:
-        new_index = alphabet.index(letter) + shift_amount
-        if new_index > len(alphabet) - 1:
-            new_index = new_index - len(alphabet)
-        encrypted_text += alphabet[new_index]
-    print(f"The encoded text is {encrypted_text}")
+    if decrypt_method == "encode":
+        for letter in text_entered:
+            new_index = alphabet.index(letter) + text_movement
+            if new_index > len(alphabet) - 1:
+                new_index = new_index - len(alphabet)
+            encrypted_text += alphabet[new_index]
+        print(f"The encoded text is {encrypted_text}")
+    elif decrypt_method == "decode":
+        for letter in text_entered:
+            new_index = alphabet.index(letter) - text_movement
+            if new_index < 0:
+                new_index = new_index + len(alphabet)
+            encrypted_text += alphabet[new_index]
+        print(f"The decrypted text is {encrypted_text}")
 
-# TODO-1: Create a different function called 'decrypt' that takes the 'text' and 'shift' as inputs.
 
-# TODO-2: Inside the 'decrypt' function, shift each letter of the 'text' *backwards* in the alphabet by the shift
-#  amount and print the decrypted text. e.g. cipher_text = "mjqqt" shift = 5 plain_text = "hello" print output: "The
-#  decoded text is hello"
-
-
-# TODO-3: Check if the user wanted to encrypt or decrypt the message by checking the 'direction' variable. Then call
-#  the correct function based on that 'drection' variable. You should be able to test the code to encrypt *AND*
-#  decrypt a message.
+caesar(text_entered=text, text_movement=shift, decrypt_method=direction)
