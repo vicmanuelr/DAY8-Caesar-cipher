@@ -9,31 +9,6 @@ direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
 text = input("Type your message:\n").lower()
 shift = int(input("Type the shift number:\n"))
 
-
-# def encrypt(plain_text, shift_amount):
-#     encrypted_text = ""
-#     for letter in plain_text:
-#         new_index = alphabet.index(letter) + shift_amount
-#         if new_index > len(alphabet) - 1:
-#             new_index = new_index - len(alphabet)
-#         encrypted_text += alphabet[new_index]
-#     print(f"The encoded text is {encrypted_text}")
-#
-# def decrypt(cypher_text, shift_amount):
-#     decrypted_text = ""
-#     for letter in cypher_text:
-#         new_index = alphabet.index(letter) - shift_amount
-#         if new_index < 0:
-#             new_index = new_index + len(alphabet)
-#         decrypted_text += alphabet[new_index]
-#     print(f"The decrypted text is {decrypted_text}")
-#
-# if direction == "encode":
-#     encrypt(plain_text=text, shift_amount=shift)
-# elif direction == "decode":
-#     decrypt(cypher_text=text, shift_amount=shift)
-
-
 def caesar(text_entered, text_movement, decrypt_method):
     encrypted_text = ""
     if decrypt_method == "encode":
@@ -53,8 +28,6 @@ def caesar(text_entered, text_movement, decrypt_method):
 
 
 caesar(text_entered=text, text_movement=shift, decrypt_method=direction)
-
-# TODO-1: Import and print the logo from art.py when the program starts.
 
 #TODO-2: What if the user enters a shift that is greater than the number of letters in the alphabet?
 #Try running the program and entering a shift number of 45.
