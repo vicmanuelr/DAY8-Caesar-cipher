@@ -11,11 +11,10 @@ while user_continue:
     text = input("Type your message:\n").lower()
     shift = int(input("Type the shift number:\n"))
 
-    if shift > len(alphabet):
-        shift = shift % len(alphabet)
-
 
     def caesar(text_entered, text_movement, decrypt_method):
+        if text_movement > len(alphabet):
+            text_movement = text_movement % len(alphabet)
         encrypted_text = ""
         if decrypt_method == "encode":
             for char in text_entered:
